@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form action="#" method="get">
+        <table>
+            <tbody>
+                <tr>
+                    <th>User Name</th>
+                    <td><input  name="uname" id="uname" type="text" placeholder="Enter Name" autocomplete="additional-name"> </td>
+                </tr>
+                <tr>
+                    <th>User Email</th>
+                    <td> <input name="email" id="email" autofocus type="email" required></td>
+                </tr>
+                <tr>
+                    <th>User Phone</th>
+                    <td> <input name="phone" id="phone" title="##########"  type="tel" pattern="[0-9]{10}" ></td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td> <input onclick="storeInfo()" type="button" value="Register"></td>
+                    <td> <input onclick="clearInfo()" type="button" value="Clear Info"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </form>
+    <!-- <datalist id="v">
+        <option value="Designer"></option>
+        <option value="Developer"></option>
+        <option value="Manager"></option>
+        <option value="FullStack Developer"></option>
+    </datalist>
+    <input  list="v"> -->
+    <script>
+        
+        function storeInfo(){
+            var info = {
+                uname : document.getElementById("uname").value,
+                email : document.getElementById("email").value,
+                phone : document.getElementById("phone").value
+            };
+
+            localStorage.setItem("user",JSON.stringify(info))
+        };
+        function clearInfo(){
+            localStorage.clear();
+        }
+
+
+//         var namesArr = [];  
+// namesArr.push('Manas'); //Add the text 'item1' to nameArr
+// localStorage.setItem('names', JSON.stringify(namesArr));
+    </script>
+</body>
+</html>
