@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+
+        @keyframes valtech{
+            0%{
+                background-color: pink;
+                transform: rotate(0deg) ,scale(1,1);
+                border-radius: 35px;
+            }
+
+            10%{
+                background-color: rgb(190, 147, 54);
+                transform: rotate(40deg) scale(1.5,1.5);
+            }
+
+            20%{
+                background-color: rgb(218, 240, 20);
+                transform: rotate(80deg) scale(1.6,1.6);
+                border-radius: 60%;
+            }
+
+
+            30%{
+                background-color: rgb(38, 185, 178);
+                transform: rotate(120deg) skewX(45deg);
+            }
+
+            40%{
+                background-color: rgb(11, 247, 42);
+                transform: rotate(160deg) scale(1,1);
+                border-radius: 30%;
+            }
+
+
+            50%{
+                background-color: rgb(117, 139, 236);
+                transform: rotate(200deg) scale(1,1);
+            }
+            60%{
+                background-color: rgb(117, 38, 170);
+                transform: rotate(240deg) scale(1,1);
+            }
+            70%{
+                background-color: rgb(228, 13, 13);
+                transform: rotate(280deg) skew(30deg,45deg);
+                border-radius: 38%;
+            }
+            80%{
+                background-color: rgb(228, 161, 18);
+                transform: rotate(320deg) ;
+            }
+            90%{
+                background-color: rgb(117, 218, 236);
+                transform: rotate(360deg) scale(1,4) skew(9,9);
+            }
+            100%{
+                background-color: rgba(21, 190, 182, 0.103);
+                transform: rotate(0deg) ;
+            }
+      
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 10px solid rgb(15, 17, 15);
+            background-color: greenyellow;
+            margin: 10vh auto;
+        }
+
+
+        .box{
+            animation-name: valtech;
+            animation-duration: 10s;
+            animation-delay: 1sec;
+            animation-iteration-count: 20;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>
