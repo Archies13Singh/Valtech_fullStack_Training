@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Sorting : <output id="op"></output> </h1>
+
+
+    <script>
+        var favNum = [12,2,4,89,13,6,5,7,16,11,17,22,1]
+
+        function sortItOut(val1, val2){
+            if(val1 > val2){
+                return 1;
+            }
+            else if(val1 < val2){
+                return -1;
+            }
+            else{
+                return 0;
+            }
+        }
+
+        document.getElementById("op").innerHTML = favNum.sort(sortItOut)
+
+    </script>
+</body>
+</html>
