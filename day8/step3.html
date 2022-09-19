@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .container{
+            height:  800px;
+            width: 800px;
+            background-color: blue;
+            margin : 100px auto;
+            overflow: auto;
+        }
+
+        .container div{
+            height: 100px;
+            width: 100px;
+            background-color: orange;
+            margin: 10px;
+            float : left;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+
+ 
+</head>
+<body>
+    <button>Add boxes</button>
+    <button>Remove</button>
+    <div class="container"></div>
+
+    <script>
+
+        var count = 1;
+        function removeclickHandler(){
+
+            document.getElementsByTagName("button")[0].removeEventListener("click",clickHandler)
+        }
+
+        function clickHandler(){
+            var box  = document.createElement("div");
+            box.textContent= count;
+            document.getElementsByClassName("container")[0].appendChild(box)
+            count++;
+        }
+        
+        function init(){
+            document.getElementsByTagName("button")[0].addEventListener("click",clickHandler)
+            document.getElementsByTagName("button")[1].addEventListener("click",removeclickHandler)
+            
+        }
+        document.addEventListener('DOMContentLoaded',init)
+    </script>
+</body>
+</html>

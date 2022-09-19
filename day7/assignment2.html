@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid silver;
+            margin: 50px auto;
+            padding: 12px;
+            width: 80%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            -webkit-box-shadow: 0px -4px 26px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px -4px 26px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px -4px 26px 0px rgba(0,0,0,0.75);
+        }
+        
+        .dices{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+            gap: 2rem;
+        }
+
+
+        .btn{
+            display: flex;
+            flex-direction: column;
+        }
+        .btn p{
+            border: 2px solid black;
+            height: 42px;
+            width: 100px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .btn button{
+            height: 100px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 32px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border: 2px solid silver;
+            background-color: lightcyan;
+            font-weight: 32rem;
+        }
+        .btn button:hover{
+            background-color: rgb(129, 129, 194);
+            -webkit-box-shadow: 0px -4px 26px 0px rgba(142,116,227,1);
+            -moz-box-shadow: 0px -4px 26px 0px rgba(142,116,227,1);
+            box-shadow: 0px -4px 26px 0px rgba(142,116,227,1);
+        }
+
+
+        #myImg1,#myImg2{
+            filter: sepia(100%);
+            /* filter:grayscale(90%) */
+        }
+    </style>
+    
+</head>
+<body>
+  
+
+    <div class="container">
+       <div class="dices">
+        
+            <img id="myImg1" src="images/dice.svg" width="30%" height="auto"></br>
+            <img id="myImg2" src="images/dice.svg" width="30%" height="auto"></br>
+            <!-- <button onclick="clickevent()">Roll </button> -->
+       
+       </div>
+        <div class="btn">
+            <p id="total">2</p>
+            <button onclick="clickevent()">Roll</button>
+        </div>
+    </div>
+
+
+    <script>
+        var para;
+        var rannum;
+        function clickevent(){
+        rannum1 = Math.floor(Math.random() * 6) + 1;
+        rannum2 = Math.floor(Math.random() * 6) + 1;
+        // para1 = document.getElementById("demo1").innerHTML = rannum1;
+        // para2 = document.getElementById("demo2").innerHTML = rannum2;
+        document.getElementById("total").innerHTML = rannum1+rannum2;
+        // dice 1 logic
+        if(rannum1==1){
+            document.getElementById("myImg1").src = "images/dice 1.svg";
+        }
+        if(rannum1==2){
+            document.getElementById("myImg1").src = "images/dice 2.svg";
+        }
+        if(rannum1==3){
+            document.getElementById("myImg1").src = "images/dice 3.svg";
+        }
+        if(rannum1==4){
+            document.getElementById("myImg1").src = "images/dice 4.svg";
+        }
+        if(rannum1==5){
+            document.getElementById("myImg1").src = "images/dice 5.svg";
+        }
+        if(rannum1==6){
+            document.getElementById("myImg1").src = "images/dice 6.svg";
+        }
+        // dice 2 logic
+        if(rannum2 == 1){
+            document.getElementById("myImg2").src = "images/dice 1.svg";
+        }
+        if(rannum2==2){
+            document.getElementById("myImg2").src = "images/dice 2.svg";
+        }
+        if(rannum2==3){
+            document.getElementById("myImg2").src = "images/dice 3.svg";
+        }
+        if(rannum2==4){
+            document.getElementById("myImg2").src = "images/dice 4.svg";
+        }
+        if(rannum2==5){
+            document.getElementById("myImg2").src = "images/dice 5.svg";
+        }
+        if(rannum2==6){
+            document.getElementById("myImg2").src = "images/dice 6.svg";
+        }
+
+    }
+    </script>
+   
+</body>
+</html>

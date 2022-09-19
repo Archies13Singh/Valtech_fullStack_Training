@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: bisque;
+            margin: 100px auto;
+            overflow: auto;
+        }
+        
+        .container div{
+            margin: 10px;
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            float: left;
+        }
+        .container div div{
+            margin: 50px;
+            height: 50px;
+            width: 10px;
+            background-color: rgb(28, 11, 73);
+            float: left;
+        }
+    </style>
+
+
+    <script>
+
+        var container = null;
+        var ri = null;
+        var count = 1;
+
+        function init(){
+            container = document.getElementsByClassName("container");
+            ri = setInterval(function(){
+                var box = document.createElement("div")
+             
+                container[0].appendChild(box)
+                count++;
+
+                if(count > 15){
+                    clearInterval(ri)
+                }
+            },50)
+        }
+
+        document.addEventListener("DOMContentLoaded",init);
+    </script>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+</html>

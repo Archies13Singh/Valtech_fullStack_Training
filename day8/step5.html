@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(114, 114, 206);
+            border: 1px solid transparent;
+            margin: 100px auto;
+        }
+        
+        .nested-container{
+            width: 350px;
+            height: 350px;
+            background-color: rgb(148, 148, 196);
+            border: 1px solid transparent;
+            margin: 75px auto;
+        }
+
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(195, 195, 219);
+            border: 1px solid transparent;
+            margin: 85px auto;
+        }
+    </style>
+    <script>
+    
+
+    function clickHandler(evt){
+        // alert("click handler working")
+        document.getElementById("log").innerHTML += "<p>Type of Event :" + evt.currentTarget.getAttribute("class") + "</p>"
+        // document.getElementById("log").innerHTML += "<p>Type of Event :" + evt.type()+ "</p>"
+    }
+
+    
+    function init(){
+        document.getElementsByClassName("container")[0].addEventListener("click",clickHandler,true)
+        document.getElementsByClassName("nested-container")[0].addEventListener("click",clickHandler,true)
+        // document.getElementsByClassName("box")[0].addEventListener("click",clickHandler,true)
+        document.getElementsByClassName("container")[0].addEventListener("click",clickHandler)
+        document.getElementsByClassName("nested-container")[0].addEventListener("click",clickHandler)
+        document.getElementsByClassName("box")[0].addEventListener("click",clickHandler)
+        
+    }   
+
+    document.addEventListener('DOMContentLoaded',init)
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="nested-container">
+            <div class="box"></div>
+        </div>
+    </div>
+
+    <p id="log"></p>
+
+
+</body>
+</html>

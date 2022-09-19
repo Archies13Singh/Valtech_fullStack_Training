@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function first(){
+            document.getElementsByTagName("h1")[0].textContent = "Hello Archies"
+        }
+        function second(){
+            document.getElementsByTagName("h1")[0].textContent = "Hello Singh"
+        }
+        function third(){
+            document.getElementsByTagName("h1")[0].textContent = "Hello Archies Singh"
+        }
+
+        window.addEventListener("load",first)
+        document.addEventListener("DOMContentLoaded",second)
+    </script>
+</head>
+<body onload="third()">
+    <h1></h1>
+</body>
+</html>
