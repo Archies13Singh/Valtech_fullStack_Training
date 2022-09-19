@@ -1,0 +1,23 @@
+section{
+    width: 900px;
+    height: 700px;
+
+    border: 2px solid black;
+    background-color: purple;
+
+}
+
+
+article{
+    width: 80px;
+    height: 80px;
+    border: 2px solid yellowgreen;
+    float: left;
+    margin: 5px;
+}
+
+#photo{
+    height: 200px;
+    width: 200px;
+    background-image: url(../images/antman.jpg);
+}
