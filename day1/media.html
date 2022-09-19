@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Current Time :- <output id="op"></output> </h1>
+    <video id="vid" loop poster="images/deadpool.jpg" width="550" height="400">
+        <source src="media/html5.mp4">
+        <source src="media/html5.webm">
+    </video>
+    <button onclick="playvid()">Play</button>
+    <button onclick="pausevid()">Pause</button>
+    <button onclick="stopvid()">Stop</button>
+    <button onclick="rewindvid()">Rewind</button>
+
+
+    <audio id="audi" width="550" height="400">
+        <source src="media/html5.mp4">
+        <source src="media/html5.webm">
+    </audio>
+    <button onclick="playaudio()">Play</button>
+    <button onclick="pauseaudio()">Pause</button>
+    <button onclick="stopaudio()">Stop</button>
+    <button onclick="rewindaudio()">Rewind</button>
+
+
+
+    <script>
+        setInterval(function(){
+            document.getElementById("op").value = document.getElementById("vid").currentTime;
+        },10)
+
+       
+        function playvid(){
+            document.getElementById("vid").play()
+        }
+        function pausevid(){
+            document.getElementById("vid").pause()
+        }
+        function stopvid(){
+            document.getElementById("vid").currentTime = 0;
+            document.getElementById("vid").pause()
+
+        }
+        function rewindvid(){
+            document.getElementById("vid").currentTime -= 1;
+        }
+        
+    </script>
+</body>
+</html>

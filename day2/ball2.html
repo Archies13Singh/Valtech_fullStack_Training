@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas{
+            border: 2px solid grey;
+            margin: 50px auto;
+            display: block;
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <canvas id="can" width="600" height="300"></canvas>
+
+    <script>
+        const canvas = document.getElementById('can')
+       const ctx = canvas.getContext('2d')
+        let raf;
+        const ball1 = {
+            x : 100,
+            y : 100,
+            vx : 5,
+            vy : 2,
+            radius : 25,
+            color : 'green',
+            draw(){
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+                ctx.closePath();
+                ctx.fillStyle = this.color
+                ctx.fill()
+            }
+        };
+
+
+        function draw1(){
+            ctx.fillStyle = 'rgba(255,255,255,0.3)'
+            ctx.fillRect(0,0,canvas.width , canvas.height);
+            ball1.draw();
+            ball1.x += ball1.vx
+            ball1.y += ball1.vy
+            ball1.vy *= .99
+            ball1.vy += .25
+
+            console.log(ball1.x + ball1.vx)
+            if(ball1.y + ball1.vy > canvas.height  || ball1.y + ball1.vy < 0){
+                ball1.vy = -ball1.vy
+            }
+            if(ball1.x + ball1.vx > canvas.width || ball1.x + ball1.vx < 0){
+                ball1.vx = -ball1.vx
+            }
+            raf = window.requestAnimationFrame(draw1)
+        }
+       
+
+        canvas.addEventListener('mouseover', (e) => {
+            raf = window.requestAnimationFrame(draw1);
+            // console.log(raf)
+        }); 
+
+        canvas.addEventListener('mouseout', (e) => {
+            window.cancelAnimationFrame(raf);
+        });
+
+        ball1.draw()
+
+    </script>
+</body>
+</html>
