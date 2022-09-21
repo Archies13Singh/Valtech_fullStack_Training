@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var favnums = [3,4,5,8]
+
+        setInterval(function(){
+            favnums.push(Math.round(Math.random()*20));
+            document.getElementById("log").innerText = favnums.join()
+        },2000)
+
+        itr =favnums.values()
+        function callValFun(){
+            console.log(itr.next().value)
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick = "callValFun()">Click here</button>
+    <p id="log"></p>
+</body>
+</html>

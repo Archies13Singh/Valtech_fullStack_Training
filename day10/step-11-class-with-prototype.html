@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function Hero(fname, lname){
+            this.firstname = fname
+            this.lastname = lname
+        }
+
+        Hero.prototype.fullname= function(){
+            return this.firstname + " " + this.lastname;
+        }
+
+        var hero1 = new Hero("Archies","Singh")
+        console.log(hero1.fullname())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

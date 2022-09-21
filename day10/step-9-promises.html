@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+         var promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(true){
+                    resolve("Promise Resolved")
+                }
+                else{
+                    reject("Promise Rejected")
+                }
+            },2000)
+        });
+
+
+        promise.then(function(message){
+            console.log("Success :" , message)
+            document.getElementsByTagName("li")[0].innerText = message
+            return message.toUpperCase()
+        }).then(function(message){
+            console.log("Success :" , message)
+            document.getElementsByTagName("li")[1].innerText = message
+            return message.toLowerCase()
+
+        }).then(function(message){
+            console.log("Success :" , message)
+            document.getElementsByTagName("li")[2].innerText = message
+        })
+        promise.catch(function(error){
+            console.log("Error : " , error)
+        })
+
+        promise.finally(function(){
+            console.log("Promise Completed")
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

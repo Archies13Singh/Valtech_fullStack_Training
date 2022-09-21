@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var hero  = Object.create(null);
+
+        Object.defineProperty(hero,"title",{
+            value : "IronMan",
+            writable : true
+        })
+;
+
+        Object.defineProperty(hero, "accesstitle",{
+            get : function(){
+                return this.title;
+            },
+            set : function(ntitle){
+                this.title = ntitle;
+            }
+        });
+        console.log(hero.title)
+        console.log(hero.accesstitle)
+        
+        hero.accesstitle = "IronMonger"
+        // hero.title = "Truth"
+        console.log(hero.title)
+        console.log("Accesssible " + hero.accesstitle)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

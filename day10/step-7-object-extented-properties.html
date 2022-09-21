@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var hero = Object.create(null);
+
+        Object.defineProperties(hero,{
+
+            title :{
+                value : "Human Being",
+                writable:true,
+                enumerable : true
+            },
+
+            firstname : {
+                value : "Archies",
+                writable : true,
+                enumerable : true
+            },
+
+            lastname :{
+                value : "Singh",
+                writable : true,
+                enumerable : true
+            },
+
+            designation : {
+                value : "Software Developer",
+                writable : true,
+                enumerable : true
+            },
+
+            fullname : {
+                value : function(){
+                    return this.firstname + " " + this.lastname + " is a " + this.designation
+                }
+            }
+        })
+
+
+
+        console.log(hero.fullname())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

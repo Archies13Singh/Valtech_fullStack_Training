@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var avengers = ["IronMan","Hulk","Dr Strange","Thor"]
+
+        function *myfun(list){
+            for(let hero of list){
+                yield hero
+            }
+    
+            
+        }
+
+        let fun = myfun(avengers)
+        var si = setInterval(function(){
+            let selectedHero = fun.next()
+            // console.log(fun.next().value)
+            if(fun.next.done){
+                clearInterval(si)
+            }
+            else{
+                console.log(selectedHero.value)
+            }
+        },2000)
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
