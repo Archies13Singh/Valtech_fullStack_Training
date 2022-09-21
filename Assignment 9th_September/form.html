@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            text-align: left;
+            margin: 50px auto;
+            display: block;
+        }
+        th{
+            padding: 15px;
+            font-size: 19px;
+            font-family :'Franklin Gothic Medium', Arial, sans-serif
+        }
+        td input{
+            padding: 10px;
+            width: 70%;
+            font-size: 19px;
+            cursor: pointer;
+        }
+        
+        #submit{
+            width: 15%;
+            font-size: 16px;
+            padding: 2px;
+        }
+        
+        #comments{
+            font-size: 19px;
+
+        }
+        
+        .checkbox{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form action="#" method="get">
+        <table>
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <td>
+                        <input type="text" name="uname" id="uname" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>
+                        <input type="text" name="lname" id="lname" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>Job Title</th>
+                    <td>
+                        <input type="text" uname = "jobtl" id="jobtl" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>Work Email</th>
+                    <td>
+                        <input type="email" uname = "wemail" id="wemail" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Company Name</th>
+                    <td>
+                        <input type="text" name="cname" id="cname" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>Industry</th>
+                    <td>
+                        <input type="text" name="industry" id="industry" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>
+                        <input type="text" name="ctry" id="ctry" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>How can we help?</sth>
+                    <td>
+                        <input type="text" name="hcwh" id="hcwh" required  >
+                    </td>
+                </tr>
+                <tr>
+                    <th>Share your comments (Optional)</th>
+                    <td>
+                        <textarea name="comments" id="comments" cols="55" rows="7"></textarea>
+                        <!-- <input type="text" name="comments" id="comments"> -->
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><input type="checkbox" id="terms" name="terms" required class="checkbox" ></th>
+                    <td>I have read and accept the terms of the privacy statement</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" id="valtech" name="valtech" required class="checkbox" ></th>
+                    <td>I would like to receive relevant news and marketing communications from the Valtech Group.
+                        I am aware that I can unsubscribe at any time.</td>
+                </tr>
+
+                <tr>
+                    <th>&nbsp;</th>
+                    <td><input id="submit" type="submit" onclick="storeInfo()"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <script>
+
+        // local storage
+        window.onload = addUserList;
+        function storeInfo(){
+            var info = {
+                uname : document.getElementById("uname").value,
+                lname : document.getElementById("lname").value,
+                job : document.getElementById("jobtl").value,
+                email : document.getElementById("wemail").value,
+                cname : document.getElementById("cname").value,
+                industry : document.getElementById("industry").value,
+                country : document.getElementById("ctry").value,
+                hcwh : document.getElementById("hcwh").value,
+                comments : document.getElementById("comments").value
+            };
+
+            window.localStorage.setItem('user'+localStorage.length, JSON.stringify(info));
+            addUserList();
+        }
+
+        function addUserList(){
+            for(var i = 0 ; i < localStorage.length; i++){
+                window.localStorage.setItem('user'+localStorage.length, JSON.stringify(info));
+            }
+        }
+       
+
+    </script>
+    
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="can" height="500" width="500"></canvas>
+    <script>
+        var ctx=document.getElementById("can").getContext("2d")
+        //ctx.style.background = "red"; 
+        var img=new Image();
+            img.src="images/spiderman.jpg"
+            img.onload=function(){
+                ctx.rotate((Math.PI/180)*15);
+                ctx.fillStyle = "silver";
+                ctx.fillRect(150, 15, 150, 180);
+                ctx.drawImage(img, 150, 15, 150, 150);
+                ctx.font = "bold 17px arial";
+                ctx.fillStyle="black";
+                ctx.fillText("SPIDERMAN",155,188);
+               
+                
+            }
+           
+        var img1=new Image();
+            img1.src="images/hulk.jpg"
+            img1.onload=function(){  
+                ctx.rotate((Math.PI/180)*0);
+                ctx.fillStyle = "silver";
+                ctx.fillRect(310, 0, 150, 180);
+                ctx.drawImage(img1,310,0,150,150);
+                ctx.font = "bold 17px arial";
+                ctx.fillStyle="black";
+                ctx.fillText("HULK",320,173);  
+            }
+                
+     
+           
+        var img2=new Image();
+            img2.src="images/blackpanther.jpg"
+            img2.onload=function(){
+                ctx.rotate((Math.PI/180)*0);
+                ctx.fillStyle = "silver";
+                ctx.fillRect(150, 210, 150, 180);
+                ctx.drawImage(img2,150,210,150,150);
+                ctx.font = "bold 17px arial";
+                ctx.fillStyle="black";
+                ctx.fillText("BLACK PANTHER",152,382);
+               
+            
+            
+                
+            }
+        var img3=new Image();
+            img3.src="images/thor.jpg"
+            img3.onload=function(){
+                ctx.rotate((Math.PI/180)*0);
+                ctx.fillStyle = "silver";
+                ctx.fillRect(310, 190, 150, 180);
+                ctx.drawImage(img3,310,190,150,150);
+                ctx.font = "bold 17px arial";
+                ctx.fillStyle="black";
+                ctx.fillText("THOR",315,363);
+            }
+    </script>
+</body>
+</html>
