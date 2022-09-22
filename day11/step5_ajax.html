@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /* height: 250px; */
+            width: 740px;
+            background-color:black;
+            margin: 20px auto;
+            /* overflow: auto; */
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 5px;
+            display: table;
+        }
+
+        button{
+            margin: 10px auto;
+            width: 502px;
+            display: block;
+        }
+
+        .details{
+            float: left;
+            background-color: lightpink;
+            margin: 15px;
+            width: 320px;
+            display: block;
+            padding: 10px;
+        }
+        .details:hover{
+            background-color: rgb(241, 141, 156);
+            cursor: pointer;
+            box-shadow: 5px 5px 15px lightpink;
+        }
+        .details:hover{
+            
+            box-shadow: 5px 5px 5px black inset;
+        }
+
+      
+    </style>
+
+
+    <script>
+
+        var xhr = new XMLHttpRequest()
+
+
+        function readStateChangeHandler(){
+            console.log("State Changes", xhr.readyState)
+            if(xhr.readyState === 4){
+                // document.getElementsByClassName("container")[0].textContent = xhr.responseText
+
+                for(var i = 0 ; i < xhr.responseXML.getElementsByTagName("participant").length; i++){
+                    // console.log(xhr.responseXML.getElementsByTagName("participant")[i].getElementsByTagName("firstname")[0].firstChild.nodeValue)
+                    
+                    var participant = xhr.responseXML.getElementsByTagName("participant")[i];
+                    document.getElementsByClassName("container")[0].innerHTML += document.getElementById("mytemplate").innerHTML
+                    .replace("{firstname}",participant.querySelector("firstname").textContent)
+                    .replace("{lastname}",participant.querySelector("lastname").textContent)
+                    .replace("{email}",participant.querySelector("email").textContent)
+                    .replace("{city}",participant.querySelector("city").textContent)
+                    
+                }
+            }
+        }
+        xhr.addEventListener('readystatechange',readStateChangeHandler)
+        function clickHandler(){
+            xhr.send()
+        }
+        
+        function init(){
+            xhr.open('get','data.xml',true)
+
+            document.getElementsByTagName("button")[0].addEventListener('click',clickHandler)
+        }
+
+        document.addEventListener('DOMContentLoaded',init)
+    </script>
+</head>
+<body>
+    <button>Click Here</button>
+    <div class="container">
+        <template id="mytemplate">
+            <div class="details">
+                <h1>{firstname} {lastname}</h1> 
+
+                <h2>{email}</h2>
+                <h2>{city}</h2>
+            </div>
+       
+        </template>
+    </div>
+</body>
+</html>

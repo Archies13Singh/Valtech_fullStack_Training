@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script type="module">
+
+        import  Person from './modules/person.js'
+
+         class Hero extends Person{
+            
+            title = "default title";
+            firstname = "default firstname";
+            lastname = "default lastname";
+
+            #mission = "secret misson";
+            static version = 100003
+            constructor(htitle , hfname, hlname, hname){
+                super(hname);
+                this.title  = htitle;
+                this.firstname = hfname;
+                this.lastname = hlname;
+            }
+            
+            fullname(){
+                return this.firstname + " "+super.name+" " + this.lastname;
+            }
+            
+            static saypower(){
+                return 7;
+            }
+
+
+            get mission(){
+                return this.#mission
+            }
+            
+            set mission(nmission){
+                this.#mission = nmission;
+            }
+      
+        }
+
+
+        var hero = new Hero("Human", "Archies", "Singh");
+
+        console.log(hero.title)
+        console.log(hero.fullname())
+        console.log(Hero.version)
+        
+        console.log(hero.mission)
+        hero.mission = "Archies" // set
+        console.log(hero.mission)
+        
+        console.log(Hero.saypower())
+        
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        // var hero2 = new Hero("Human", "Archies", "Singh", "Kuldeep")
+        // console.log(hero2.hname)
+        // console.log(Hero.sayName)
+        // console.log(hero2.fullname())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

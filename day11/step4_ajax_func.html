@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 250px;
+            width: 500px;
+            background-color: lightpink;
+            margin: 20px auto;
+            overflow: auto;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 5px;
+        }
+
+        button{
+            margin: 10px auto;
+            width: 502px;
+            display: block;
+        }
+
+        .container div{
+            height: 20px;
+            /* width: auto; */
+            color: white;
+            background-color: coral;
+            margin: 4px;
+            padding: 10px;
+        }
+        .container div:hover{
+            background-color: rgb(247, 179, 155);
+            color: black;
+            cursor: pointer;
+            box-shadow: 5px 5px  20px black;
+        }
+    </style>
+
+
+    <script>
+
+        var xhr = new XMLHttpRequest()
+
+
+        function readStateChangeHandler(){
+            console.log("State Changes", xhr.readyState)
+            if(xhr.readyState === 4){
+                // document.getElementsByClassName("container")[0].textContent = xhr.responseText
+
+                for(var i = 0 ; i < xhr.responseXML.getElementsByTagName("participant").length; i++){
+                    // console.log(xhr.responseXML.getElementsByTagName("participant")[i].getElementsByTagName("firstname")[0].firstChild.nodeValue)
+                    
+                    document.getElementsByTagName("div")[0].innerHTML += 
+                    `
+                    <div>${xhr.responseXML.getElementsByTagName("participant")[i].getElementsByTagName("firstname")[0].firstChild.nodeValue}</div> 
+                    `
+                }
+            }
+        }
+        xhr.addEventListener('readystatechange',readStateChangeHandler)
+        function clickHandler(){
+            xhr.send()
+        }
+        
+        function init(){
+            xhr.open('get','data.xml',true)
+
+            document.getElementsByTagName("button")[0].addEventListener('click',clickHandler)
+        }
+
+        document.addEventListener('DOMContentLoaded',init)
+    </script>
+</head>
+<body>
+    <button>Click Here</button>
+    <div class="container">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .container{
+            background-color: black;
+            height: 250px;
+            width: 840px;
+        }
+
+        .details{
+            /* height: 32px; */
+            background-color: pink;
+        }
+        
+    </style>
+
+
+
+    <script>
+        var xhr = new XMLHttpRequest()
+
+        xhr.addEventListener('readystatechange', xhrHandler)
+
+        function xhrHandler(evt){
+            if(evt.target.readyState === 4){
+                JSON.parse(evt.target.responseText).root.participant.forEach(element => {
+                    document.getElementsByClassName("container")[0].innerHTML += document.getElementById("mytemplate").innerHTML
+                    .replace("{firstname}",element.firstname)
+                    .replace("{lastname}",element.lastname)
+                    .replace("{email}",element.email)
+                    .replace("{city}",element.city)
+                });
+            }
+        }
+        function clickHandler(){
+            xhr.open('get','data.json',true)
+            xhr.send()
+        }
+
+        function init(){
+
+            document.querySelector("button").addEventListener('click',clickHandler)
+        }
+
+        document.addEventListener('DOMContentLoaded', init)
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <div class="container">
+        <template id="mytemplate">
+            <div class="details">
+                <h1>{firstname}{lastname}</h1>
+                <h2>{email}</h2>
+                <h3>{city}</h3>
+            </div>
+        </template>
+    </div>
+</body>
+</html>
