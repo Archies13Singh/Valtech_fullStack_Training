@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        canvas{
+            border: 2px solid black;
+            margin: 100px auto;
+            display: block;
+        }
+        
+        button{
+            margin: 100px auto;
+            display: block;
+            width: 150px;
+            height: 60px;
+            font-size: 32px;
+            cursor: pointer;
+        }
+        </style>
+
+
+</head>
+<body>
+    <canvas id="canvbox" width="900" height="500"></canvas>
+    <p id="log"></p>
+    <button>Get Data</button>
+    <script>
+        // var data_length = 5;
+        var  posy = 350;
+        var posx = 80;
+        var ctx = document.getElementById("canvbox").getContext("2d");
+        ctx.beginPath()
+        ctx.moveTo(50,50)
+        ctx.lineTo(50,400)
+        ctx.moveTo(50,400)
+        ctx.lineTo(580,400)
+        
+        
+        var xhr = new XMLHttpRequest()
+        xhr.addEventListener('readystatechange',xhrHandler)
+        var height = new Array();
+
+        var colors = new Array()
+
+        function xhrHandler(evt){
+            if(evt.target.readyState === 4){
+                
+                JSON.parse(evt.target.responseText).data.forEach(element => {
+                    height.push(element.casesHandled)
+                    colors.push(element.col)
+                    ctx.fillStyle = colors[0]
+                    ctx.fillRect(80,199,35,height[0])
+                    ctx.fillStyle = colors[1]
+                    ctx.fillRect(170,99,35,height[1])
+                    ctx.fillStyle = colors[2]
+                    ctx.fillRect(255,309,35,height[2])
+                    ctx.fillStyle = colors[3]
+                    ctx.fillRect(350,149,35,height[3])
+                    ctx.fillStyle = colors[4]
+                    ctx.fillRect(440,224,35,height[4])
+                    ctx.fillStyle = colors[5]
+                    ctx.fillRect(530,174,35,height[5])
+                    ctx.fillText(element.agentName,posx,420)
+                    posy -= 50
+                    
+                    posx += 90
+                });
+            }   
+        }
+        // ctx.fillRect(posx,posy-190,35,element.casesHandled)
+        
+        // console.log(data_length)
+        // ctx.fill() 
+        xhr.open('get','canvas.json',true)
+        function clickHandler(){
+            xhr.send()
+        }
+        
+        
+        function init(){
+            document.querySelector("button").addEventListener('click', clickHandler)
+        }
+        ctx.closePath()
+        ctx.stroke()
+        document.addEventListener('DOMContentLoaded', init)
+        
+        
+        
+        </script>
+</body>
+</html>
