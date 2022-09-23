@@ -1,3 +1,5 @@
+Assignment-1
+
 1. First I created html file
 2. Then added a canvas tag in html
 3. added some css to keep canvas in the center
