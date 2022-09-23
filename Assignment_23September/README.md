@@ -10,3 +10,4 @@
 
 9. Thats all what i worked to created my assignment.
 
+![graph](https://user-images.githubusercontent.com/59329806/191931474-988a00db-59e8-49ca-b1b9-f1adecfa40a2.PNG)
