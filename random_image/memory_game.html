@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* Starter code */
+        .starter{
+            display: none;
+            border: 2px solid transparent;
+            max-width: 500px;
+            height:500px;
+            margin: 100px auto;
+            padding: 12px;
+            font-family: sans-serif;
+            box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            background-color: #7FB5FF;
+        }
+
+        /* .starter h1{
+            text-align: center;
+            font-family: sans-serif;
+        } */
+
+        .starter div:first-child{
+            text-align: center;
+            color: #001D6E;
+            text-shadow: 0px -2px 3px #C4DDFF;
+        }
+
+
+        .headings1{
+            margin-bottom: 53px;
+            text-align: center;
+            color: #001D6E;
+            text-shadow: 0px -2px 3px #C4DDFF;
+        }
+        .rules{
+            width: 458px;
+            height: 231px;
+            /* background: #f06d06; */
+            position: relative;
+            border: 2px solid blue;
+            margin: 20px;
+            line-height: 25px;
+            margin-bottom: 42px;
+        }
+        
+        .rules:after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            /* background: red; */
+            border: 2px solid #F5EFE6;
+            z-index: 1;
+        }
+
+        .rules h3{
+            margin-left: 23px;
+            font-size: 20px;
+        }
+
+        .btn1{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 23px;           
+        }
+
+        .btn1 button{
+            width: 150px;
+            height: 40px;
+            border-radius: none;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: transparent;
+        }
+        .btn1 button:hover{
+            box-shadow: blue 0px 50px 100px -20px, blue 0px 30px 60px -30px, blue 0px -2px 6px 0px inset;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        /* End of Starter code */
+        
+        /* Start of 1st view */
+        .first_view{
+            display: none;
+            /* display: block; */
+            background-color: #F5EFE6;
+            max-width: 500px;
+            height:500px;
+            margin: 100px auto;
+            padding: 12px;
+            box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+        }
+        .img_cont{
+            background-color: #E8DFCA;
+            border: 2px solid grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-basis:100px;
+            width: 100%;
+            height: 335px;
+        }
+        
+        .nested_img_cont{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+        }
+        .img_cont img{
+            max-width: 200px;
+            /* width: 400px;  */
+            margin: 100px auto;
+            /* padding: 2px; */
+            cursor: pointer;
+            float: left;
+        }
+
+        .first_view .timernum{
+            text-align: center;
+            font-size: 22px;
+            font-family: sans-serif;
+            border: 2px solid transparent;
+
+        }
+        /* End of first view */
+
+        /* Start of final_view */
+
+        .final_view{
+            display: block;
+            /* display: none; */
+            border: 2px solid black;
+            width: 500px;
+            height: 669px;
+            margin: 100px auto;
+            box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+        }
+
+        
+        .image_box{
+            float: left;
+            overflow: auto;
+        }
+        .image_box img{
+            max-width: 164px;
+            cursor: pointer;
+        }
+        /* End of final_view */
+
+        /* css for mobile view */
+
+        @media only screen and (max-width: 486px) {
+             
+            .img_cont img{
+                max-width: 140px;
+                /* width: 400px;  */
+                margin: 100px auto;
+                /* padding: 2px; */
+                cursor: pointer;
+                float: left;
+            }
+
+            .first_view .timernum{
+             margin-top: 32px;
+            }
+
+            .rules{
+            width: 293px;
+            height: 261px;
+            /* background: #f06d06; */
+            position: relative;
+            border: 2px solid blue;
+            margin: 20px;
+            line-height: 20px;
+            margin-bottom: 42px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="starter" id="section1">
+            <div class="headings1">
+                <h1>Image Memory Game</h1>
+                <h3>🙏🏻🙏🏻🙏🏻Welcome🙏🏻🙏🏻🙏🏻</h3>
+            </div>
+            <div class="rules" >
+                <h3>RULES</h3>
+                <ol>
+                    <li>2 images will display remember them and match it with the images comes after few second</li>
+                    <li>You will get only 10 sec to memorize the images</li>
+                    <li>5 sec to select the correct answer</li>
+                    <li>If wrong then automatic you will be directed to home page else you can play for more 10 rounds</li>
+                </ol>
+            </div>
+            <div class="btn1">
+                <button id="movein">Start</button>
+            </div>
+        </div>
+
+
+
+        <div class="first_view" id="section2">
+            <div class="headings1">
+                <h1>Image Memory Game</h1>
+            </div>
+            <div class="img_cont">
+                <div class="timernum">
+                    <p class="timer">0</p>
+                </div>
+               <div class="nested_img_cont">
+                    <div class="img1">
+                        <img src="" alt="">
+                    </div>
+                    <div class="img2">
+                        <img src="" alt="">
+                    </div>
+               </div>
+            </div>
+          
+        </div>
+
+
+        <div id="section3" class="final_view">
+            <div class="image_box">
+                <img src="" alt="" id="1">
+                <img src="" alt="" id="2">
+                <img src="" alt="" id="3">
+                <img src="" alt="" id="4">
+                <img src="" alt="" id="5">
+                <img src="" alt="" id="6">
+                <img src="" alt="" id="7">
+                <img src="" alt="" id="8">
+                <img src="" alt="" id="9">
+                <img src="" alt="" id="10">
+                <img src="" alt="" id="11">
+                <img src="" alt="" id="12">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var images = ['images/antman.jpg',
+                      'images/deadpool.jpg',
+                      'images/hulk.jpg',
+                      'images/robin.jpg',
+                      'images/blackpanther.jpg',
+                      'images/phantom.jpg',
+                      'images/scarletwitch.jpg',
+                      'images/wonderwoman.jpg',
+                      'images/hawkeye.jpg',
+                      'images/captainamerica.jpg',
+                      'images/thor.jpg',
+                      'images/supergirl.jpg'
+                    ]
+        var random1 = Math.floor(Math.random() *12) 
+        var random2 = Math.floor(Math.random() * 12) 
+        var time = 0;
+        
+        function tworandom(){
+            while (true){
+            if(random1 == random2){
+                random1 = Math.floor(Math.random() * 12) 
+                random2 = Math.floor(Math.random() * 12) 
+            }
+            else{
+                break
+            }
+        }
+        }
+
+        tworandom()
+     
+        document.getElementsByTagName("img")[0].src = images[random1]
+        document.getElementsByTagName("img")[1].src = images[random2]
+        
+        
+        // time interval 
+        function updater(timeupdate){
+            document.getElementsByClassName("timer")[0].textContent = timeupdate
+        }
+        
+
+
+        var ran1 = Math.floor(Math.random()*12)
+        var ran2 = Math.floor(Math.random()*12)
+        var ran3 = Math.floor(Math.random()*12)
+        var ran4 = Math.floor(Math.random()*12)
+        var ran5 = Math.floor(Math.random()*12)
+        var ran6 = Math.floor(Math.random()*12)
+        var ran7 = Math.floor(Math.random()*12)
+        var ran8 = Math.floor(Math.random()*12)
+        var ran9 = Math.floor(Math.random()*12)
+        var ran10 = Math.floor(Math.random()*12)
+        var ran11 = Math.floor(Math.random()*12)
+        var ran12 = Math.floor(Math.random()*12)
+
+
+        // (ran1 == random1 || ran2 == random1 || ran3 == random1 || ran4 == random1 || ran5 == random1 || ran6 == random1 || ran7 == random1 || ran8 == random1 || ran9 == random1)&& (ran1 == random2 || ran2 == random2 || ran3 == random2 || ran4 == random2 || ran5 == random2 || ran6 == random2 || ran7 == random2 || ran8 == random2 || ran9 == random2)
+       function generateRandom(){
+        while (true){
+            if(ran1 == ran2 || ran1 == ran3 || ran1 == ran4 || ran1 == ran5 || ran1 == ran6 || ran1 == ran7 || ran1 == ran8 || ran1 == ran9 || ran1 == ran10 || ran1 == ran11 || ran1 == ran12){
+                ran1 = Math.floor(Math.random()*12)
+            }
+            else if(ran2 == ran1 || ran2 == ran3 || ran2 == ran4 || ran2 == ran5 || ran2 == ran6 || ran2 == ran7 || ran2 == ran8 || ran2 == ran9 || ran2 == ran10 || ran2 == ran11 || ran2 == ran12){
+                ran2 = Math.floor(Math.random()*12)
+            }
+            else if(ran3 == ran1 || ran3 == ran2 || ran3 == ran4 || ran3 == ran5 || ran3 == ran6 || ran3 == ran7 || ran3 == ran8 || ran3 == ran9 || ran3 == ran10 || ran3 == ran11 || ran3 == ran12){
+                ran3 = Math.floor(Math.random()*12)
+            }
+            else if(ran4 == ran2 || ran4 == ran3 || ran4 == ran1 || ran4 == ran5 || ran4 == ran6 || ran4 == ran7 || ran4 == ran8 || ran4 == ran9 || ran4 == ran10 || ran4 == ran11 || ran4 == ran12){
+                ran4 = Math.floor(Math.random()*12)
+            }
+            else if(ran5 == ran2 || ran5 == ran3 || ran5 == ran4 || ran5 == ran1 || ran5 == ran6 || ran5 == ran7 || ran5 == ran8 || ran5 == ran9 || ran5 == ran10 || ran5 == ran11 || ran5 == ran12){
+                ran5 = Math.floor(Math.random()*12)
+            }
+            else if(ran6 == ran2 || ran6 == ran3 || ran6 == ran4 || ran6 == ran5 || ran6 == ran1 || ran6 == ran7 || ran6 == ran8 || ran6 == ran9 || ran6 == ran10 || ran6 == ran11 || ran6 == ran12){
+                ran6 = Math.floor(Math.random()*12)
+            }
+            else if(ran7 == ran2 || ran7 == ran3 || ran7 == ran4 || ran7 == ran5 || ran7 == ran6 || ran7 == ran1 || ran7 == ran8 || ran7 == ran9 || ran7 == ran10 || ran7 == ran11 || ran7 == ran12){
+                ran7 = Math.floor(Math.random()*12)
+            }
+            else if(ran8 == ran2 || ran8 == ran3 || ran8 == ran4 || ran8 == ran5 || ran8 == ran6 || ran8 == ran7 || ran8 == ran1 || ran8 == ran9 || ran8 == ran10 || ran8 == ran11 || ran8 == ran12){
+                ran8 = Math.floor(Math.random()*12)
+            }
+            else if(ran9 == ran2 || ran9 == ran3 || ran9 == ran4 || ran9 == ran5 || ran9 == ran6 || ran9 == ran7 || ran9 == ran8 || ran9 == ran1 || ran9 == ran10 || ran9 == ran11 || ran9 == ran12){
+                ran9 = Math.floor(Math.random()*12)
+            }
+            else if(ran10 == ran2 || ran10 == ran3 || ran10 == ran4 || ran10 == ran5 || ran10 == ran6 || ran10 == ran7 || ran10 == ran8 || ran10 == ran1 || ran10 == ran9 || ran10 == ran11 || ran10 == ran12){
+                ran10 = Math.floor(Math.random()*12)
+            }
+            else if(ran11 == ran1 || ran11 == ran2 || ran11 == ran3 || ran11 == ran4 || ran11 == ran5 || ran11 == ran6 || ran11 == ran7 || ran11 == ran8 || ran11 == ran9 || ran11 == ran10 || ran11 == ran12){
+                ran11 = Math.floor(Math.random()*12)
+            }
+            else if(ran12 == ran1 || ran12 == ran2 || ran12 == ran3 || ran12 == ran4 || ran12 == ran5 || ran12 == ran6 || ran12 == ran7 || ran12 == ran8 || ran12 == ran9 || ran12 == ran10 || ran12 == ran11){
+                ran12 = Math.floor(Math.random()*12)
+            }
+            else{
+                break
+            }
+        }
+    }
+        generateRandom()
+
+        document.getElementsByTagName("img")[2].id = ran1;
+        document.getElementsByTagName("img")[3].id = ran2;
+        document.getElementsByTagName("img")[4].id = ran3;
+        document.getElementsByTagName("img")[5].id = ran4;
+        document.getElementsByTagName("img")[6].id = ran5;
+        document.getElementsByTagName("img")[7].id = ran6;
+        document.getElementsByTagName("img")[8].id = ran7;
+        document.getElementsByTagName("img")[9].id = ran8;
+        document.getElementsByTagName("img")[10].id = ran9;
+        document.getElementsByTagName("img")[11].id = ran10;
+        document.getElementsByTagName("img")[12].id = ran11;
+        document.getElementsByTagName("img")[13].id = ran12;
+
+
+        console.log("Random1 :" + random1)
+        console.log("Random2 :" + random2)
+        console.log("Ran1 :" + ran1)
+        console.log("Ran2 :" + ran2)
+        console.log("Ran3 :" + ran3)
+        console.log("Ran4 :" + ran4)
+        console.log("Ran5 :" + ran5)
+        console.log("Ran6 :" + ran6)
+        console.log("Ran7 :" + ran7)
+        console.log("Ran8 :" + ran8)
+        console.log("Ran9 :" + ran9)
+        console.log("Ran10 :" + ran10)
+        console.log("Ran11 :" + ran11)
+        console.log("Ran12 :" + ran12)
+
+        document.getElementsByTagName("img")[2].src = images[ran1]
+        document.getElementsByTagName("img")[3].src = images[ran2]
+        document.getElementsByTagName("img")[4].src = images[ran3]
+        document.getElementsByTagName("img")[5].src = images[ran4]
+        document.getElementsByTagName("img")[6].src = images[ran5]
+        document.getElementsByTagName("img")[7].src = images[ran6]
+        document.getElementsByTagName("img")[8].src = images[ran7]
+        document.getElementsByTagName("img")[9].src = images[ran8]
+        document.getElementsByTagName("img")[10].src = images[ran9]
+        document.getElementsByTagName("img")[11].src = images[ran10]
+        document.getElementsByTagName("img")[12].src = images[ran11]
+        document.getElementsByTagName("img")[13].src = images[ran12]
+
+        for(var i = 2 ; i <=13 ; i++){
+            document.getElementsByTagName("img")[i].addEventListener('click',eventHandler)
+        }
+        
+        // event target
+        // document.getElementById
+        function eventHandler(evt){
+            if(evt.target.id == random1 && evt.target.id == random2 ){
+
+               
+                    document.getElementById("section3").style.display = "none";
+                    document.getElementById("section2").style.display = "block";
+                    random1 = Math.floor(Math.random() * 12) 
+                    random2 = Math.floor(Math.random() * 12) 
+                    tworandom()
+                    document.getElementsByTagName("img")[0].src = images[random1]
+                    document.getElementsByTagName("img")[1].src = images[random2]
+                
+            }
+            // else if(evt.target.id == random1 && evt.target.id == random2){
+
+            // }
+
+        }
+        
+        
+        
+    //    hiding 1 onclick to display second
+        function clickHandler(){
+            document.getElementById("section1").style.display = "none"
+            document.getElementById("section2").style.display = "block"
+            setInterval(function(){
+            if(time < 5){
+                updater(++time);
+                if(time == 5){
+                    document.getElementById("section2").style.display = "none";
+                    document.getElementById("section3").style.display = "block";
+                }
+                }
+            },1000)
+
+        }
+        function init(){
+            document.getElementById("movein").addEventListener('click',clickHandler)
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded',init)
+    </script>
+</body>
+</html>
