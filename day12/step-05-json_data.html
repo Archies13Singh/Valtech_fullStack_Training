@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="lib/jquery-3.6.1.js"></script>
+
+    <style>
+        .container{
+            background-color: black;
+            height: 300px;
+            width: 500px;
+            overflow: auto;
+            margin: 100px auto;
+            color: white;
+        }
+
+        button{
+            display: block;
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        .container div{
+            border: 1px solid white;
+            padding: 15px;
+        }
+    </style>
+    <script>
+        let promise = null;
+        $(()=>{
+
+            $("button").click(function(){
+
+                promise = $.getJSON("data/data.json");
+                // console.log(promise)
+                promise.fail(function(err,s,jqxhr){
+                    console.log(err)
+                })
+                promise.done(function(res,status,jqxhr){
+                    $(res.root.participant).each(function(idx,val){
+                        // console.log(val.firstname)
+                        $(".container").append(
+                            `
+                            <div> 
+                                <h3> ${val.firstname +" " + val.lastname} </h3>
+                                <h3> ${val.email} </h3> 
+                                <h3> ${val.city} </h3> 
+                                
+                                </div>
+                                `
+                                )
+                            })
+                })
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <div class="container">
+
+    </div>
+</body>
+</html

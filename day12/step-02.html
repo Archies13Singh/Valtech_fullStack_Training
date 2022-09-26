@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="lib/jquery-3.6.1.js"></script>
+    <script>
+        $(()=>{
+            // $("li:first").css("border","2px solid green")
+            // $("li:last").css("border","2px solid green")
+            // $("li:even").css("border","2px solid green")
+            // $("li:odd").css("border","2px solid green")
+            // $("li:eq(5)").css("border","2px solid green")
+            // $("li:gt(4)").css("border","2px solid green")
+            // $("li:lt(4)").css("border","2px solid green")
+            // $(":header").css("border","2px solid green")
+            // $("li:not(:first)").css("border","2px solid green")
+            // $("li:parent").css("border","2px solid green")
+            // $("ul:has(.x)").css("border","2px solid red")
+
+            // $("p:hidden").show(2000)
+            // $("ol:visible").show(2500)
+            var title = $("li[class = 'x']").css("border","2px solid red");
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <h1>Singh</h1>
+		<li>List Item - 1</li>
+		<li>List Item - 2</li>
+		<li class="x">List Item - 3</li>
+		<li>List Item - 4</li>
+		<li>List Item - 5</li>
+	</ul>
+    <ul>
+        <h1>Singh</h1>
+		<li>List Item - 1</li>
+		<li>List Item - 2</li>
+		<li class="x">List Item - 3</li>
+		<li>List Item - 4</li>
+		<li>List Item - 5</li>
+	</ul>
+
+	<ol style="display:block">
+        <h1>Archies</h1>
+		<li class="box1">Box 1</li>
+		<li class="box2">Box 2</li>
+		<li class="box3">Box 3</li>
+		<li class="box4">Box 4</li>
+		<li class="box5">Box 5</li>
+	</ol>
+
+    <input type="text" title="Select"> 
+    <h4>Archies Singh</h4>
+	<p id="player">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium consequuntur eum tenetur, quibusdam eos enim quisquam voluptatibus esse laboriosam voluptas dolor fuga suscipit doloribus possimus rem labore id tempore ex dolorem quis.</p>
+    <button>Click to Hide</button>
+</body>
+</html>
