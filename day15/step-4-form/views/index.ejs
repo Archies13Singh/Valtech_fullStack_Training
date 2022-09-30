@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> <%=compname %> generated from EJS </h1>
+
+    <hr>
+    <form action="/" method="post">
+
+        <label for="nhero">
+            New Hero : <input type="text" name="nhero" id="nhero"> 
+        </label>
+
+        <button type="submit">Add New Hero</button>
+    </form>
+
+    <ol>
+        <% herolist.forEach(function(idx){ %>
+            <li><%=idx%> <button id="remove">x</button></li> 
+        <% }); %>
+    </ol>
+</body>
+</html>
