@@ -20,6 +20,9 @@ app.use( session({
 }) );
 // csrf must be added after the session middleware is configured
 // and pass the sessionkey which is the name of the cookie
+
+
+// Why csruf comes into the scenary :- Csruf is used so that one shouldnot delete client side cookies using some other website. These is called cross site request forgery
 app.use(csurf({  sessionKey : "valtech" })); // add csrf : cross site request forgery 
 // global middle-ware
 app.use(function(req, res, next){
