@@ -1,0 +1,7 @@
+{
+    "port" : 2525,
+    "host" : "localhost",
+    "username" : "archies_004",
+    "password" : "archies_04",
+    "dbname" : "valtechdb"
+}
