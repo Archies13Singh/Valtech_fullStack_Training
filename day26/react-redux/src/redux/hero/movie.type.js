@@ -1,0 +1,5 @@
+const ADD_MOVIE  = "ADD_MOVIE"
+const REMOVE_MOVIE = "REMOVE_MOVIE"
+
+
+export {ADD_MOVIE,REMOVE_MOVIE}
