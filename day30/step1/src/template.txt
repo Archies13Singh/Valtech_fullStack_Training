@@ -1,0 +1,17 @@
+<template>
+  <h1>Welcome to your life</h1>
+</template>
+
+<script>
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+</script>
+
+<style>
+
+</style>
