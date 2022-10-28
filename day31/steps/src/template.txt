@@ -1,0 +1,372 @@
+<template>
+  <div>
+    <h1>{{title}}</h1>
+    <input min="0" max="10" type="range" v-model="power">
+    <h2 v-if="power ==='5'">Power is 5</h2>
+    <h2 v-else>Power is not 5</h2>
+    <input type="checkbox" v-model="show">
+    <template v-if="show">
+    <fieldset >
+      <legend>Terms and Conditions</legend>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate aliquam quos quas qui quisquam reprehenderit inventore nobis enim provident sapiente ducimus animi neque tempora, architecto explicabo beatae eum earum consequatur. Perspiciatis quam repellendus dolor. Quas dignissimos velit quod ut. Autem accusantium similique, optio fugit quia fugiat veniam aspernatur iste magnam, repudiandae dolores quas! Vitae, velit? Blanditiis ab rerum maxime nesciunt magni ratione facilis nisi, nobis repellat, fugiat aliquam unde deserunt expedita aspernatur libero laboriosam. Voluptas incidunt praesentium accusamus error illum labore deleniti explicabo sint neque. Ipsam quas quod quasi dolorem totam? Corporis ratione a laborum sed veritatis nesciunt vero? Saepe?
+      </p>
+    </fieldset>
+      </template> 
+      <h2 v-if="show">Content shown using if</h2>
+      <h2 v-show="show">Content shown using show</h2>
+  </div>
+</template>
+
+<script>
+  export default{
+    data(){
+      return{
+        title : "Welcome to your life",
+        power : '5',
+        show : true,
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Method 1 
+<template>
+  <div>
+    <h1>{{ project.apptitle }}</h1>
+    <ul>
+      <li>{{ avengers[0] }}</li>
+      <li>{{ avengers[1] }}</li>
+      <li>{{ avengers[2] }}</li>
+      <li>{{ avengers[3] }}</li>
+    </ul>
+    <ul>
+      <li v-for="(hname, key) in avengers" v-bind:key="key">{{ (key+1) +" "+hname }}</li>
+    </ul>
+    <div v-for="(name, key) in project" :key="key">{{ key.toUpperCase() }} : {{ name }}</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Movies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="({title, firstname, lastname, movies}, index) in ladyAvengers" :key="index">
+          <td>{{ title }}</td>
+          <td>{{ firstname }}</td>
+          <td>{{ lastname }}</td>
+          <td>
+            <ol>
+              <li v-for="({title, year}, index) in movies" :key="index"> {{ title }} | Release Year {{ year }} </li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+ 
+<script>
+export default {
+data(){
+  return {
+            avengers: ['Black Widow', 'Scarlet Witch', 'Shuri', 'Wasp', 'Captain Marvel', 'Gamora'],
+            names: [
+              { title: 'Wasp', firstname: "Janet", lastname: 'Van Dyne' },
+              { title: 'Scarlet Witch', firstname: "Wanda", lastname: 'Maximoff' },
+              { title: 'Black Widow', firstname: "Natasha", lastname: 'Romanoff' },
+              { title: 'Captain Marvel', firstname: "Carol", lastname: 'Danvers' },
+            ],
+            project : {
+              apptitle : "Avengers App",
+              author : "Vijay",
+              version : 101,
+              year  :2022
+            },
+            ladyAvengers: [
+              {
+                "title": "Wasp",
+                "firstname": "Janet",
+                "lastname": "Van Dyne",
+                "movies": [
+                  { "title": "Ant-Man", "year": 2015 },
+                  { "title": "Ant‑Man and the Wasp", "year": 2018 },
+                  { "title": "Avengers: Endgame", "year": 2019 }
+                ]
+              },
+              {
+                "title": "Scarlet Witch",
+                "firstname": "Wanda",
+                "lastname": "Maximoff",
+                "movies": [
+                  { "title": "Captain America: The Winter Soldier", "year": 2014 },
+                  { "title": "Avengers: Age of Ultron", "year": 2015 },
+                  { "title": "Captain America: Civil War", "year": 2016 },
+                  { "title": "Avengers: Infinity War", "year": 2018 },
+                  { "title": "Avengers: Endgame", "year": 2019 },
+                  { "title": "Doctor Strange in the Multiverse of Madness", "year": 2022 }
+                ]
+              },
+              {
+                "title": "Black Widow",
+                "firstname": "Natasha",
+                "lastname": "Romanoff",
+                "movies": [
+                  { "title": "Iron Man 2", "year": 2010 },
+                  { "title": "Avengers", "year": 2012 },
+                  { "title": "Captain America: The Winter Soldier", "year": 2014 },
+                  { "title": "Avengers: Age of Ultron", "year": 2015 },
+                  { "title": "Captain America: Civil War", "year": 2016 },
+                  { "title": "Avengers: Infinity War", "year": 2018 },
+                  { "title": "Avengers: Endgame", "year": 2019 }
+                ]
+              },
+              {
+                "title": "Captain Marvel",
+                "firstname": "Carol",
+                "lastname": "Danvers",
+                "movies": [
+                  { "title": "Captain Marvel", "year": 2019 },
+                  { "title": "Avengers: Endgame", "year": 2019 }
+                ]
+              },
+              {
+                "title": "Gamora",
+                "firstname": "",
+                "lastname": "",
+                "movies": [
+                  { "title": "Guardians of the Galaxy", "year": 2014 },
+                  { "title": "Guardians of the Galaxy Vol. 2", "year": 2017 },
+                  { "title": "Avengers: Infinity War", "year": 2018 },
+                  { "title": "Avengers: Endgame", "year": 2019 }
+                ]
+              },
+              {
+                "title": "Shuri",
+                "firstname": "",
+                "lastname": "",
+                "movies": [
+                  { "title": "Black Panther", "year": 2018 },
+                  { "title": "Avengers: Infinity War", "year": 2018 },
+                  { "title": "Avengers: Endgame", "year": 2019 },
+                  { "title": "Black Panther: Wakanda Forever", "year": 2022 }
+                ]
+              }
+    ]
+  }
+}
+}
+</script>
+ 
+<style></style>
+
+-------------------------------------------------------------------------------------------------------------------
+Method 3
+
+<template>
+  <div>
+    <h1>{{project.apptitle}}</h1>
+    <ul>
+      <li v-for="(hname,key) in avengers" v-bind:key="key">{{hname}}</li>
+    </ul>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>FirstName</th>
+          <th>Lastname</th>
+          <th>Movies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(avengers,key) in ladyAvengers" :key="key">
+          <td>{{avengers.title}}</td>
+          <td>{{avengers.firstname}}</td>
+          <td>{{avengers.lastname}}</td>
+          <td>
+            <ol>
+              <li v-for="(movie,index) in avengers.movies" :key="index">
+                {{movie.title}}
+              </li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+  export default{
+    data(){
+      return{
+        avengers: ['Black Widow', 'Scarlet Witch', 'Shuri', 'Wasp', 'Captain Marvel', 'Gamora'],
+        names: [
+          { title: 'Wasp', firstname: "Janet", lastname: 'Van Dyne' },
+          { title: 'Scarlet Witch', firstname: "Wanda", lastname: 'Maximoff' },
+          { title: 'Black Widow', firstname: "Natasha", lastname: 'Romanoff' },
+          { title: 'Captain Marvel', firstname: "Carol", lastname: 'Danvers' },
+        ],
+        project : {   
+          apptitle : "Avengers App",
+          author : "Vijay",
+          version : 101,
+          year  :2022
+        },
+        ladyAvengers: [
+          {
+            "title": "Wasp",
+            "firstname": "Janet",
+            "lastname": "Van Dyne",
+            "movies": [
+              { "title": "Ant-Man", "year": 2015 },
+              { "title": "Ant‑Man and the Wasp", "year": 2018 },
+              { "title": "Avengers: Endgame", "year": 2019 }
+            ]
+          },
+          {
+            "title": "Scarlet Witch",
+            "firstname": "Wanda",
+            "lastname": "Maximoff",
+            "movies": [
+              { "title": "Captain America: The Winter Soldier", "year": 2014 },
+              { "title": "Avengers: Age of Ultron", "year": 2015 },
+              { "title": "Captain America: Civil War", "year": 2016 },
+              { "title": "Avengers: Infinity War", "year": 2018 },
+              { "title": "Avengers: Endgame", "year": 2019 },
+              { "title": "Doctor Strange in the Multiverse of Madness", "year": 2022 }
+            ]
+          },
+          {
+            "title": "Black Widow",
+            "firstname": "Natasha",
+            "lastname": "Romanoff",
+            "movies": [
+              { "title": "Iron Man 2", "year": 2010 },
+              { "title": "Avengers", "year": 2012 },
+              { "title": "Captain America: The Winter Soldier", "year": 2014 },
+              { "title": "Avengers: Age of Ultron", "year": 2015 },
+              { "title": "Captain America: Civil War", "year": 2016 },
+              { "title": "Avengers: Infinity War", "year": 2018 },
+              { "title": "Avengers: Endgame", "year": 2019 }
+            ]
+          },
+          {
+            "title": "Captain Marvel",
+            "firstname": "Carol",
+            "lastname": "Danvers",
+            "movies": [
+              { "title": "Captain Marvel", "year": 2019 },
+              { "title": "Avengers: Endgame", "year": 2019 }
+            ]
+          },
+          {
+            "title": "Gamora",
+            "firstname": "",
+            "lastname": "",
+            "movies": [
+              { "title": "Guardians of the Galaxy", "year": 2014 },
+              { "title": "Guardians of the Galaxy Vol. 2", "year": 2017 },
+              { "title": "Avengers: Infinity War", "year": 2018 },
+              { "title": "Avengers: Endgame", "year": 2019 }
+            ]
+          },
+          {
+            "title": "Shuri",
+            "firstname": "",
+            "lastname": "",
+            "movies": [
+              { "title": "Black Panther", "year": 2018 },
+              { "title": "Avengers: Infinity War", "year": 2018 },
+              { "title": "Avengers: Endgame", "year": 2019 },
+              { "title": "Black Panther: Wakanda Forever", "year": 2022 }
+            ]
+          }
+]
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <button v-on:click="myfun">Click Me</button>
+    <button @click="myfun">Click Me</button>
+    <h2>Power : {{ power }}</h2>
+    <button @click="power++"> increase power</button>
+    <button @click="power--"> decrease power</button>
+    <hr>
+    <button @click="increasePower"> increase power</button>
+    <button @click="decreasePower"> decrease power</button>
+    <hr>
+    Power is <input @input="setPower($event)" type="range"/>
+  </div>
+</template>
+ 
+<script>
+export default {
+data(){
+  return {
+    title : "Methods Events Computed ",
+    power : 0
+  }
+},
+methods : {
+  myfun :  () =>{
+    alert("you clicked me")
+  },
+  increasePower(){
+    this.power++
+  },
+  decreasePower(){
+    this.power--
+  },
+  setPower(evt){
+    this.power = evt.target.value
+  }
+}
+}
+</script>
+ 
+<style></style>
+
+
+------------------------------------------------------------------------------\1. .lazy : will trigger data binding after the blur event of the text input 
+2. .number : will convert the input to a number type
+3. .trim : will remove any white space arround string
+ 
+#### event modifiers
+1. .stop: The propagation of the click event will stop.
+2. .prevent: This is used to prevent the reloading of the webpage.
+3. .self: This is used to tell the element to trigger the event if the target element is itself.
+4. .capture: This is used to handle the event of the inner element before the inner element handles it.
+ 
+5. .once: This is used to trigger the event once. or make the content static add v-once to make the content not accept changes more than once, good to use this to optimize the application as vue will mark this tag not to be re-rendered 
+6. .passive: This is used for touch events to improve performance.
+7. .pre allows us to pre render binding expressions in the code 
+ 
+8.   Key Board - .enter .tab .delete .esc .space .up .down .left .right  
+ 
+    System Modifier Keys  - .ctrl .alt  .shift  .meta
+ 
+    Mouse Button Modifiers - .left .right .middle
